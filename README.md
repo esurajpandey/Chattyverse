@@ -1,2 +1,2 @@
-#ChattyVerse
-Chat with chatties in the verse
+# ChattyVerse
+   - Chat with chatties in the verse
