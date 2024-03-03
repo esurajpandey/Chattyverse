@@ -38,7 +38,7 @@ const Home = () => {
         borderWidth="1px"
         border={0}
       >
-        <Text fontWeight={900}>My-Chat-App</Text>
+        <Text fontWeight={900} >ChattyVerse</Text>
       </Box>
 
       <Box
