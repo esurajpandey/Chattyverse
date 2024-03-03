@@ -31,6 +31,7 @@ const UpdateChatModel = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
   const [renameLoading, setRenameLoading] = useState(false);
+  const endPoint = process.env.REACT_APP_SERVER_END_POINT || '';
 
   const toast = useToast();
   const handleAddUser = async (user1) => {
@@ -64,7 +65,7 @@ const UpdateChatModel = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "/api/chat/add-to-group",
+        endPoint+  "/api/chat/add-to-group",
         {
           chatId: selectedChat?._id,
           userId: user1._id,
@@ -110,7 +111,7 @@ const UpdateChatModel = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "/api/chat/remove-from-group",
+        endPoint+ "/api/chat/remove-from-group",
         {
           chatId: selectedChat?._id,
           userId: userToRemove._id,
@@ -150,7 +151,7 @@ const UpdateChatModel = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
         },
       };
       const { data } = await axios.put(
-        "/api/chat/rename-group",
+        endPoint + "/api/chat/rename-group",
         { chatId: selectedChat._id, chatName: groupChatName },
         config
       );
@@ -187,7 +188,7 @@ const UpdateChatModel = ({ fetchAgain, setFetchAgain, fetchMessages }) => {
       };
 
       const { data } = await axios.get(
-        `/api/user/user?search=${search}`,
+        endPoint +`/api/user/user?search=${search}`,
         config
       );
       setLoading(false);

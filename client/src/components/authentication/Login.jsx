@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 
 const Login = () => {
+
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [loading, setLoading] = useState(false);
@@ -20,6 +21,8 @@ const Login = () => {
   const handleShow = (e) => setShow(!show);
   const toast = useToast();
   const history = useHistory();
+
+  const endPoint = process.env.REACT_APP_SERVER_END_POINT || '';
 
   const loginHandler = async () => {
     setLoading(true);
@@ -43,7 +46,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        "/api/user/login",
+        endPoint + "/api/user/login",
         {
           email,
           password,
@@ -65,9 +68,10 @@ const Login = () => {
 
       history.push("/chats");
     } catch (err) {
+      const message = err?.response?.data?.message || "Login faild - User not found / incorrect details"
       toast({
         title: "Error occured",
-        description: err?.response?.data?.message,
+        description: message,
         status: "warning",
         duration: 5000,
         isClosable: true,

@@ -50,7 +50,13 @@ const PORT = process.env.PORT || 5000;
 
 app.use(notFound);
 app.use(errorHanlder);
-connectDb();
+connectDb()
+.then(()=>{
+    console.log("Db connected")
+})
+.catch(error =>{
+    console.log("Error in db connection");
+})
 
 
 server.listen(PORT, () => {

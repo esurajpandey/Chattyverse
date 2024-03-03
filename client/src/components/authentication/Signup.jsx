@@ -24,6 +24,7 @@ const Signup = () => {
 
   const history = useHistory();
   const handleShow = (e) => setShow(!show);
+  const endPoint = process.env.REACT_APP_SERVER_END_POINT || '';
 
   const toast = useToast();
 
@@ -108,7 +109,7 @@ const Signup = () => {
 
       console.log("In this 1");
       const { data } = await axios.post(
-        "/api/user/user",
+        endPoint + "/api/user/user",
         {
           name,
           email,

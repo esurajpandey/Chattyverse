@@ -1,6 +1,5 @@
 import React from "react";
 import { ChatState } from "../../context/ChatProvider";
-import axios from "axios";
 
 import { Box } from "@chakra-ui/react";
 import SingleChat from "./SingleChat";

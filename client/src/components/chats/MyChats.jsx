@@ -12,7 +12,7 @@ const MyChats = ({ fetchAgain }) => {
   const { user, selectedChat, setSelectedChat, chats, setChats } = ChatState();
 
   const toast = useToast();
-
+  const endPoint = process.env.REACT_APP_SERVER_END_POINT || '';
   const fetchChats = async () => {
     try {
       const config = {
@@ -21,7 +21,7 @@ const MyChats = ({ fetchAgain }) => {
         },
       };
 
-      const { data } = await axios.get("/api/chat", config);
+      const { data } = await axios.get(endPoint + "/api/chat", config);
       setChats(data);
     } catch (err) {
       toast({

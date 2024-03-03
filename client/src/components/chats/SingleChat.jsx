@@ -22,7 +22,7 @@ import typingAnim from "../../animation/typing.json";
 import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
 
-const ENDPOINT = "http://192.168.1.104:5000";
+const ENDPOINT =  process.env.REACT_APP_SERVER_END_POINT || '';
 var socket, selectedChatCompare;
 
 const SingleChat = ({ fetchAgain, setFetchAgain }) => {
@@ -59,7 +59,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
       };
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        ENDPOINT + `/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -91,7 +91,7 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
         };
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/message",
+          ENDPOINT + "/api/message",
           {
             content: newMessage,
             chatId: selectedChat._id,
