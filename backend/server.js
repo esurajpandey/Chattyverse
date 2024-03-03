@@ -26,23 +26,9 @@ app.use('/api/chat', chatRoutes);
 app.use('/api/message', messageRoutes)
 
 
-//------Deployment-----//
-const __dirname = path.resolve();
-var __dirname1 = path.resolve(__dirname, '..');
-if (`${process.env.NODE_ENV}` === "production") {
-
-    app.use(express.static(path.join(__dirname1, "/client/build")));
-
-    app.get("*", (req, resp) => {
-        resp.sendFile(path.resolve(__dirname1, "client", "build", "index.html"));
-    });
-
-} else {
-    app.use('/', (res, resp) => {
-        resp.send("Api is running");
-    })
-}
-
+app.use('/', (res, resp) => {
+    resp.send("Api is running");
+})
 
 
 //---Deployemnet----//
