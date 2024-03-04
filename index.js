@@ -11,7 +11,7 @@ app.use(cors({
     origin: '*',
 }));
 
-const PORT = process.env.PORT || 9000;
+const PORT = 9000;
 
 app.get('/api/health', async(req, res) => {
     res.status(200).send({
