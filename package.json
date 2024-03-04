@@ -1,0 +1,12 @@
+{
+  "name": "chattyverse",
+  "version": "1.0.0",
+  "description": "#  Express-Socket.IO Chat Application    - This Chat application, built with Express, Socket.IO, MongoDB, React, and Chakra UI, provides a seamless communication platform with the following features:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
