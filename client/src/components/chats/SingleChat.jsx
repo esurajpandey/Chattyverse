@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import "./message.css";
 import io from "socket.io-client";
@@ -17,7 +18,7 @@ import { ChatState } from "../../context/ChatProvider";
 import { getSender, getSenderFull } from "../../utils/chatDetails";
 import ProfileModel from "../miscellaneous/ProfileModel";
 import UpdateChatModel from "./UpdateChatModel";
-import typingAnim from "../../animation/typing.json";
+// import typingAnim from "../../animation/typing.json";
 
 import axios from "axios";
 import ScrollableChat from "./ScrollableChat";
@@ -38,14 +39,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
 
   const toast = useToast();
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: typingAnim,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  // const defaultOptions = {
+  //   loop: true,
+  //   autoplay: true,
+  //   animationData: typingAnim,
+  //   rendererSettings: {
+  //     preserveAspectRatio: "xMidYMid slice",
+  //   },
+  // };
 
   const fetchMessages = async () => {
     if (!selectedChat) return;
