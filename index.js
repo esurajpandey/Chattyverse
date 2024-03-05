@@ -1,6 +1,6 @@
 import express from 'express';
-import cors from 'cors';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import connectDb from './config/db.js';
 import userRoutes from './routes/userRoutes.js';
 import { notFound, errorHanlder } from './middleware/errorHanler.js';
@@ -8,37 +8,31 @@ import chatRoutes from './routes/chatRoutes.js';
 import messageRoutes from './routes/messageRouter.js'
 import { Server } from 'socket.io';
 import { createServer } from 'http';
+import path from 'path';
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended : true }));
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-app.use(
-    cors({ 
-        origin: [
-            'http://localhost:3000',
-            'https://chattyverse.netlify.app'
-        ],
-        credentials: true 
-    })
-)
-
-const PORT = process.env.PORT || 9000;
-
-app.get('/api/health', async(req, res) => {
-    res.status(200).send({
-        data : null,
-        message : "Backend server is running fine",
-        success : true,
-    });
-});
 
 const server = createServer(app);
+
+
 app.use('/api/user', userRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/message', messageRoutes)
+
+
+app.use('/', (res, resp) => {
+    resp.send("Api is running");
+})
+
+
+//---Deployemnet----//
+const PORT = process.env.PORT || 5000;
 
 app.use(notFound);
 app.use(errorHanlder);
@@ -50,10 +44,10 @@ connectDb()
     console.log("Error in db connection");
 })
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
-});
 
+server.listen(PORT, () => {
+    console.log("Server is running at ", PORT)
+})
 
 const io = new Server(server, {
     pingTimeout: 60000,
