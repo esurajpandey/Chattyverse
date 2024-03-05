@@ -19,8 +19,9 @@ app.use(
     cors({ 
         origin: [
             'http://localhost:3000',
-             /\.regenci\.online$/],
-             credentials: true 
+            'https://chattyverse.netlify.app'
+        ],
+        credentials: true 
     })
 )
 
