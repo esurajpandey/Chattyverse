@@ -1,7 +1,7 @@
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import "./message.css";
 import io from "socket.io-client";
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
 
 import {
   Box,
@@ -233,13 +233,14 @@ const SingleChat = ({ fetchAgain, setFetchAgain }) => {
             )}
 
             <FormControl onKeyDown={sendMessage} isRequired mt={3}>
-              {isTyping ? (
-                <div>
-                  <Lottie
+            {/* <Lottie
                     width={70}
                     style={{ marginLeft: 0, marginBottom: 15 }}
                     options={defaultOptions}
-                  />
+                  /> */}
+              {isTyping ? (
+                <div>
+                  Typing ....
                 </div>
               ) : (
                 <></>
