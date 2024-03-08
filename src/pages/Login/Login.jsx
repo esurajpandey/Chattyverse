@@ -1,9 +1,69 @@
-import React from 'react'
+import React from 'react';
+import { useAppContext } from '../../context/AppContext';
+import style from './Login.module.scss';
+import { Button, Checkbox, Input, Typography } from '@material-tailwind/react';
+import { Link } from 'react-router-dom';
 
 function Login() {
-  return (
-    <div className='container'>Login</div>
-  )
+	const { darkMode } = useAppContext();
+
+	return (
+		<div
+			className={[
+				darkMode ? 'DarkWrapper' : 'LightWrapper',
+				style.LoginWrapper,
+			].join(' ')}>
+			<div className={style.ContainerColumn}>
+
+				<div
+
+					className={[style.LoginForm, darkMode ? 'DarkBg' : 'LightBg'].join(
+						' ',
+					)}>
+					<Typography variant="h6">Login Please</Typography>
+
+					<div className={style.FormWrapper}>
+						<Input
+							variant="standard"
+							label="Email"
+							placeholder="Enter your email "
+							labelProps={{ className: 'text-lg' }}
+						/>
+						<Input
+							variant="standard"
+							label="Password"
+							placeholder="Enter your password "
+							labelProps={{ className: 'text-lg' }}
+						/>
+						<div className={["flex items-center justify-between md:flex-row sm:flex-col",style.ForgotPassword].join(" ")}>
+							<Checkbox
+								label="Remember Me"
+								ripple={false}
+								containerProps={{
+									className: 'p-0',
+								}}
+								labelProps={{
+									className : style.CheckboxStyle
+								}}
+							/>
+							<Link>Forgot Password?</Link>
+						</div>
+						<Button variant="gradient">Login</Button>
+						<div className="hidden md:inline">
+							<Link to="/app/register">Click here to register</Link>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className={style.ContainerColumn}>
+				<div className='flex items-center justify-center w-full flex-col gap-[0.5em] text-white'>
+					<Typography variant='h4'>WELCOME!</Typography>
+					<span>Enter your details and start chatting</span>
+					<Link to="/app/register" className='text-lg'>Click to Register</Link>
+				</div>
+			</div>
+		</div>
+	);
 }
 
-export default Login
+export default Login;

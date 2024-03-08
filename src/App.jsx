@@ -12,12 +12,12 @@ import ProtectedRoutes from './components/common/ProtectedRoutes';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Header from './components/Header/Header';
+import { useAppContext } from './context/AppContext';
 
 function App() {
 	const navigate = useNavigate();
-	const [isLoading,setIsLoading] = useState(false);
 	async function verifyUser() {}
-
+	const { isLoading } = useAppContext();
 	useEffect(() => {
 		const user = localStorage.getItem('user');
 		if (user && user?.token) {
@@ -27,23 +27,23 @@ function App() {
 			navigate('/app/login');
 		}
 	}, []);
-	return <>
-		<Header/>
-		{isLoading && <CustomLoader />}
-		<Routes>
-			<Route path="/app/login" element={<Login />} />
-			<Route path="/app/register" element={<Login />} />
-			<Route
-				path="/"
-				element={
-					<ProtectedRoutes
-						isAuthenticated={true}
-						children={<Home />}
-					/>
-				}
-			/>
-		</Routes>
-	</>;
+
+	return (
+		<>
+			<Header />
+			{isLoading && <CustomLoader />}
+			<Routes>
+				<Route path="/app/login" element={<Login />} />
+				<Route path="/app/register" element={<Login />} />
+				<Route
+					path="/"
+					element={
+						<ProtectedRoutes isAuthenticated={true} children={<Home />} />
+					}
+				/>
+			</Routes>
+		</>
+	);
 }
 
 export default App;

@@ -12,7 +12,7 @@
 html,
 body {
 	font-family: 'Fira Sans', sans-serif;
-	// max-width: 1380px;
+	max-width: 1380px;
 	width: 100%;
 	box-sizing: border-box;
 	-webkit-font-smoothing: antialiased;
@@ -40,22 +40,70 @@ body {
 	background: #626970;
 }
 
-.container{
+.Wrapper {
 	width: 100%;
-	height: 100vh;
-	border: 1px solid red;
+	min-height: 90vh;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+	top: 0rem;
 }
 
-@media (max-width: 1280px){
+.LightWrapper {
+	@extend .Wrapper;
+	background: #ffffff;
+	color: #333333;
+	input {
+		background: #ffffff !important;
+		color: #333333 !important;
+	}
+	label {
+		color: black !important;
+	}
+	button{
+		color: #ffffff !important;
+		background: $color-blue !important;
+	}
+}
+
+.DarkWrapper {
+	@extend .Wrapper;
+	color: #ffffff;
+	background: #121212;
+	input {
+		color: #ffffff !important;
+		background: #121212 !important;
+	}
+
+	label {
+		color: white !important;
+	}
+	button{
+		background: #ffffff !important;
+		color: #333333 !important;
+	}
 	
 }
-
-@media (max-width: 720px){
-
+.DarkBg {
+	background: #121212;
+}
+.LightBg {
+	background: #ffffff;
 }
 
-@media (max-width: 540px){
-	
+a{
+	font-family: 'Fira Sans',sans-serif !important;
+	font-size: 1rem;
+	font-weight: 300;
+	&:hover{
+		text-decoration: underline;
+	}
+}
+@media (max-width: 1280px) {
+}
+
+@media (max-width: 720px) {
+}
+
+@media (max-width: 540px) {
 }
