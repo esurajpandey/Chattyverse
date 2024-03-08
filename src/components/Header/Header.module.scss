@@ -1,0 +1,31 @@
+@import '../../variable.scss';
+
+.Wrapper{
+    width: 100%;
+    padding: 0.5em 2em;
+    display: flex;
+    border-bottom: 1px solid $border-color-1;
+    justify-content: space-between;
+}
+
+.Logo{
+    display: flex;
+    align-items: center;
+    img{
+        width: 3rem;
+        padding: 0;
+        margin: 0;
+    }
+    h4{
+        font-family: "Varela Round",sans-serif;
+    }
+}
+
+.HeaderRight{
+    display: flex;
+    align-items: center;
+
+    .mode{
+        display: flex;
+    }
+}
