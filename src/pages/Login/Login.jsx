@@ -3,7 +3,6 @@ import { useAppContext } from '../../context/AppContext';
 import style from './Login.module.scss';
 import { Button, Checkbox, Input, Typography } from '@material-tailwind/react';
 import { Link } from 'react-router-dom';
-
 function Login() {
 	const { darkMode } = useAppContext();
 
@@ -17,7 +16,7 @@ function Login() {
 
 				<div
 
-					className={[style.LoginForm, darkMode ? 'DarkBg' : 'LightBg'].join(
+					className={[style.LoginForm, darkMode ? `${style.WhiteBorder} DarkBg` : 'LightBg'].join(
 						' ',
 					)}>
 					<Typography variant="h6">Login Please</Typography>
@@ -35,21 +34,11 @@ function Login() {
 							placeholder="Enter your password "
 							labelProps={{ className: 'text-lg' }}
 						/>
-						<div className={["flex items-center justify-between md:flex-row sm:flex-col",style.ForgotPassword].join(" ")}>
-							<Checkbox
-								label="Remember Me"
-								ripple={false}
-								containerProps={{
-									className: 'p-0',
-								}}
-								labelProps={{
-									className : style.CheckboxStyle
-								}}
-							/>
+						<div className={["flex items-center justify-center md:flex-row sm:flex-col"].join(" ")}>
 							<Link>Forgot Password?</Link>
 						</div>
 						<Button variant="gradient">Login</Button>
-						<div className="hidden md:inline">
+						<div className={["flex items-center justify-center text-lg", style.registerLink].join(" ")}>
 							<Link to="/app/register">Click here to register</Link>
 						</div>
 					</div>

@@ -13,6 +13,7 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Header from './components/Header/Header';
 import { useAppContext } from './context/AppContext';
+import Register from './pages/Register/Register';
 
 function App() {
 	const navigate = useNavigate();
@@ -24,7 +25,7 @@ function App() {
 			verifyUser();
 		} else {
 			localStorage.removeItem('user');
-			navigate('/app/login');
+			// navigate('/app/login');
 		}
 	}, []);
 
@@ -34,7 +35,7 @@ function App() {
 			{isLoading && <CustomLoader />}
 			<Routes>
 				<Route path="/app/login" element={<Login />} />
-				<Route path="/app/register" element={<Login />} />
+				<Route path="/app/register" element={<Register />} />
 				<Route
 					path="/"
 					element={

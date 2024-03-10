@@ -65,16 +65,14 @@
         
     }
 }
-.CheckboxStyle{
-    padding-left: 0.3em !important;
-    font-family: 'Fira Sans',sans-serif !important;
-    font-size: 1rem !important;
-    font-weight: 300;
-}
-
 .ForgotPassword{
 	display: flex;
 	align-items: center;
+	
+}
+
+.WhiteBorder{
+	box-shadow: 0px 4px 19px 0px white;
 }
 
 .ContainerColumn:last-child {
@@ -82,7 +80,9 @@
 	width: 40%;
 	background: url('../../assets/loginbg.webp') center/cover no-repeat;
 	border-radius: 10px;
+	display: block;
 }
+
 
 
 @media (max-width: 820px) {
@@ -93,6 +93,10 @@
 		margin: 0 !important;
 		border-radius: 0;
 	}
+}
+
+.registerLink{
+	display: none !important;
 }
 
 @media (max-width: 540px) {
@@ -125,7 +129,11 @@
 	}
 
 	.ForgotPassword{
+		width: 100%;
 		flex-direction: column;
 		gap: 0.5em;
+	}
+	.registerLink{
+		display: flex !important;
 	}
 }

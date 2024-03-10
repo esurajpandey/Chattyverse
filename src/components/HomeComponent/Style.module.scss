@@ -1,0 +1,67 @@
+@import '../../variable.scss';
+
+.Container{
+    max-width: 100%;
+    height: 100%;
+}
+
+.LightContainer{
+    @extend .Container;
+}
+.DarkContainer{
+    @extend .Container;
+}
+
+.ListItem{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.8em;
+    border-radius: 5px;
+    cursor: pointer;
+    // border-bottom: 0.5px solid gray;
+    span{
+        font-size: 1.2rem;
+        height: 2em;
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover{
+        background: $color-blue;
+        color: white;
+    }
+}
+.Profile{
+    border-radius: 50%;
+    img{
+        border-radius: 50%;
+        width: 2em;
+        height: 2em;
+        display: block;
+    }
+}
+
+
+@media (max-width: 1380px) {
+    .Container{
+        max-width: 10em;
+    }
+}
+
+@media (max-width: 820) {
+    .Container{
+        max-width: 10em;
+    }
+}
+
+@media (max-width: 540px) {
+    .Container{
+        max-width: 100%;
+    }
+
+    .ListItem{
+        padding: 0.7em 1em;
+    }
+}
